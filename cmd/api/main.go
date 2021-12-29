@@ -31,7 +31,7 @@ func main() {
 	var cfg config
 
 	flag.IntVar(&cfg.port, "port", 8080, "Server port to listen on")
-	flag.StringVar(&cfg.env, "env", "development", "Application environment (development|prodactiion)")
+	flag.StringVar(&cfg.env, "env", "development", "Application environment (development|productiion)")
 	flag.Parse()
 
 	logger := log.New(os.Stdout, "", log.Ldate|log.Ltime)
@@ -41,7 +41,7 @@ func main() {
 		logger: logger,
 	}
 
-	srv := &http.Server{``
+	srv := &http.Server{
 		Addr:         fmt.Sprintf(":%d", cfg.port),
 		Handler:      app.routes(),
 		IdleTimeout:  time.Minute,
