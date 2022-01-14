@@ -32,3 +32,11 @@ func (app *application) errorJSON(w http.ResponseWriter, err error) {
 
 	app.writeJSON(w, http.StatusBadRequest, theError, "error")
 }
+
+func (app *application) checkErr(w http.ResponseWriter, err error) bool {
+	if err != nil {
+		app.errorJSON(w, err)
+		return true
+	}
+	return false
+}
